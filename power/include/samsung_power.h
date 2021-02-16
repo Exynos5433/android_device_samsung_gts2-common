@@ -42,6 +42,8 @@ static const std::vector<std::string> cpuInteractivePaths = {
 /* custom CPU power saving freq - trelte */
 #define PSAVE_LITTLE "1000000"
 #define PSAVE_BIG "1400000"
+#define LITTLE "1300000"
+#define BIG "1700000"
 
 /* interactive default profile - trelte */
 #define INTERACTIVE_DEF_L_TIMER_RATE "20000"
