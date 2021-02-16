@@ -274,6 +274,9 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_HIGH_B_GO_HISPEED_LOAD);
                 set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_HIGH_B_TARGET_LOADS);
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_HIGH_B_ABOVE_HISPEED_DELAY);
+				/* set CPU MAX FREQ to max*/
+                set(cpuInteractivePaths.at(0) + "/scaling_max_freq", HIGH_LITTLE);
+                set(cpuInteractivePaths.at(1) + "/scaling_max_freq", HIGH_BIG);
             break;
         default:
             break;
