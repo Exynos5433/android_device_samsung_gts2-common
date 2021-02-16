@@ -200,7 +200,9 @@ void Power::initialize() {
     set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_DEF_B_GO_HISPEED_LOAD);
     set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
     set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
-	
+    /* set CPU MAX FREQ on initialize */
+    set(cpuInteractivePaths.at(0) + "/scaling_max_freq", LITTLE);
+    set(cpuInteractivePaths.at(1) + "/scaling_max_freq", BIG);
 
     initialized = true;
 }
@@ -258,6 +260,9 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_DEF_B_GO_HISPEED_LOAD);
                 set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
+				/* set CPU MAX FREQ back to expected freq */
+                set(cpuInteractivePaths.at(0) + "/scaling_max_freq", LITTLE);
+                set(cpuInteractivePaths.at(1) + "/scaling_max_freq", BIG);
             break;
         case PowerProfile::HIGH_PERFORMANCE:
                 set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_HIGH_L_HISPEED_FREQ);
