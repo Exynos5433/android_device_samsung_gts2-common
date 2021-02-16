@@ -246,6 +246,16 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_LOW_B_ABOVE_HISPEED_DELAY);
             break;
         case PowerProfile::BALANCED:
+                set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_DEF_L_HISPEED_FREQ);
+                set(cpuInteractivePaths.at(0) + "/go_hispeed_load", INTERACTIVE_DEF_L_GO_HISPEED_LOAD);
+                set(cpuInteractivePaths.at(0) + "/target_loads", INTERACTIVE_DEF_L_TARGET_LOADS);
+                set(cpuInteractivePaths.at(0) + "/above_hispeed_delay", INTERACTIVE_DEF_L_ABOVE_HISPEED_DELAY);
+                set(cpuInteractivePaths.at(0) + "/min_sample_time", INTERACTIVE_DEF_L_MIN_SAMPLE_TIME);
+                set(cpuInteractivePaths.at(1) + "/hispeed_freq", INTERACTIVE_DEF_B_HISPEED_FREQ);
+                set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_DEF_B_GO_HISPEED_LOAD);
+                set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
+                set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
+            break;
         case PowerProfile::HIGH_PERFORMANCE:
                 set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_HIGH_L_HISPEED_FREQ);
                 set(cpuInteractivePaths.at(0) + "/go_hispeed_load", INTERACTIVE_HIGH_L_GO_HISPEED_LOAD);
