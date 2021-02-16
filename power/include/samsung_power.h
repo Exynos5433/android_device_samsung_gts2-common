@@ -39,6 +39,10 @@ static const std::vector<std::string> cpuInteractivePaths = {
 /* double tap to wake node */
 //#define TAP_TO_WAKE_NODE "/sys/class/sec/tsp/dt2w_enable"
 
+/* custom CPU power saving freq - trelte */
+#define PSAVE_LITTLE "1000000"
+#define PSAVE_BIG "1400000"
+
 /* interactive default profile - trelte */
 #define INTERACTIVE_DEF_L_TIMER_RATE "20000"
 #define INTERACTIVE_DEF_L_TIMER_SLACK "20000"
