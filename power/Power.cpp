@@ -172,6 +172,35 @@ void Power::initialize() {
     for (const std::string& sysfsPath : cpuSysfsPaths) {
         max_freqs.emplace_back(get<std::string>(sysfsPath + "/cpufreq/scaling_max_freq", ""));
     }
+	
+	// default values at stock powerhal initialize
+    set(cpuInteractivePaths.at(0) + "/timer_rate", INTERACTIVE_DEF_L_TIMER_RATE);
+    set(cpuInteractivePaths.at(0) + "/timer_slack", INTERACTIVE_DEF_L_TIMER_SLACK);
+    set(cpuInteractivePaths.at(0) + "/min_sample_time", INTERACTIVE_DEF_L_MIN_SAMPLE_TIME);
+    set(cpuInteractivePaths.at(0) + "/boostpulse_duration", INTERACTIVE_DEF_L_BOOTPULSE_DURATION);
+    set(cpuInteractivePaths.at(0) + "/multi_enter_load", INTERACTIVE_DEF_L_MULTI_ENTER_LOAD);
+    set(cpuInteractivePaths.at(0) + "/single_enter_load", INTERACTIVE_DEF_L_SINGLE_ENTER_LOAD);
+    set(cpuInteractivePaths.at(1) + "/timer_rate", INTERACTIVE_DEF_B_TIMER_RATE);
+    set(cpuInteractivePaths.at(1) + "/timer_slack", INTERACTIVE_DEF_B_TIMER_SLACK);
+    set(cpuInteractivePaths.at(1) + "/min_sample_time", INTERACTIVE_DEF_B_MIN_SAMPLE_TIME);
+    set(cpuInteractivePaths.at(1) + "/boostpulse_duration", INTERACTIVE_DEF_B_BOOTPULSE_DURATION);
+    set(cpuInteractivePaths.at(1) + "/single_enter_load", INTERACTIVE_DEF_B_SINGLE_ENTER_LOAD);
+    set(cpuInteractivePaths.at(1) + "/single_enter_time", INTERACTIVE_DEF_B_SINGLE_ENTER_TIME);
+    set(cpuInteractivePaths.at(1) + "/single_exit_load", INTERACTIVE_DEF_B_SINGLE_EXIT_LOAD);
+    set(cpuInteractivePaths.at(1) + "/single_exit_time", INTERACTIVE_DEF_B_SINGLE_EXIT_TIME);
+    set(cpuInteractivePaths.at(1) + "/multi_enter_load", INTERACTIVE_DEF_B_MULTI_ENTER_LOAD);
+    set(cpuInteractivePaths.at(1) + "/multi_enter_time", INTERACTIVE_DEF_B_MULTI_ENTER_TIME);
+    set(cpuInteractivePaths.at(1) + "/multi_exit_load", INTERACTIVE_DEF_B_MULTI_EXIT_LOAD);
+    set(cpuInteractivePaths.at(1) + "/multi_exit_time", INTERACTIVE_DEF_B_MULTI_EXIT_TIME);
+    set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_DEF_L_HISPEED_FREQ);
+    set(cpuInteractivePaths.at(0) + "/go_hispeed_load", INTERACTIVE_DEF_L_GO_HISPEED_LOAD);
+    set(cpuInteractivePaths.at(0) + "/target_loads", INTERACTIVE_DEF_L_TARGET_LOADS);
+    set(cpuInteractivePaths.at(0) + "/above_hispeed_delay", INTERACTIVE_DEF_L_ABOVE_HISPEED_DELAY);
+    set(cpuInteractivePaths.at(1) + "/hispeed_freq", INTERACTIVE_DEF_B_HISPEED_FREQ);
+    set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_DEF_B_GO_HISPEED_LOAD);
+    set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
+    set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
+	
 
     initialized = true;
 }
