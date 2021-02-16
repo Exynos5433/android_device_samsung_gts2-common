@@ -247,12 +247,15 @@ void Power::setProfile(PowerProfile profile) {
             break;
         case PowerProfile::BALANCED:
         case PowerProfile::HIGH_PERFORMANCE:
-            // Restore normal max freq
-            for (int i = 0; i < cpuSysfsPaths.size(); i++) {
-                if (max_freqs.size() > i && !max_freqs.at(i).empty()) {
-                    set(cpuSysfsPaths.at(i) + "/cpufreq/scaling_max_freq", max_freqs.at(i));
-                }
-            }
+                set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_HIGH_L_HISPEED_FREQ);
+                set(cpuInteractivePaths.at(0) + "/go_hispeed_load", INTERACTIVE_HIGH_L_GO_HISPEED_LOAD);
+                set(cpuInteractivePaths.at(0) + "/target_loads", INTERACTIVE_HIGH_L_TARGET_LOADS);
+                set(cpuInteractivePaths.at(0) + "/above_hispeed_delay", INTERACTIVE_HIGH_L_ABOVE_HISPEED_DELAY);
+                set(cpuInteractivePaths.at(0) + "/min_sample_time", INTERACTIVE_HIGH_L_MIN_SAMPLE_TIME);
+                set(cpuInteractivePaths.at(1) + "/hispeed_freq", INTERACTIVE_HIGH_B_HISPEED_FREQ);
+                set(cpuInteractivePaths.at(1) + "/go_hispeed_load", INTERACTIVE_HIGH_B_GO_HISPEED_LOAD);
+                set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_HIGH_B_TARGET_LOADS);
+                set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_HIGH_B_ABOVE_HISPEED_DELAY);
             break;
         default:
             break;
