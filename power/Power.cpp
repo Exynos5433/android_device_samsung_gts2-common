@@ -201,8 +201,8 @@ void Power::initialize() {
     set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
     set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
     /* set CPU MAX FREQ on initialize */
-    set(cpuInteractivePaths.at(0) + "/scaling_max_freq", LITTLE);
-    set(cpuInteractivePaths.at(1) + "/scaling_max_freq", BIG);
+    set(cpuSysfsPaths.at(0) + "/cpufreq/scaling_max_freq", LITTLE);
+    set(cpuSysfsPaths.at(1) + "/cpufreq/scaling_max_freq", BIG);
 
     initialized = true;
 }
@@ -247,8 +247,8 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_LOW_B_TARGET_LOADS);
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_LOW_B_ABOVE_HISPEED_DELAY);
 				/* Limit CPU MAX FREQ to custom values */
-                set(cpuInteractivePaths.at(0) + "/scaling_max_freq", PSAVE_LITTLE);
-                set(cpuInteractivePaths.at(1) + "/scaling_max_freq", PSAVE_BIG);
+                set(cpuSysfsPaths.at(0) + "/cpufreq/scaling_max_freq", PSAVE_LITTLE);
+                set(cpuSysfsPaths.at(1) + "/cpufreq/scaling_max_freq", PSAVE_BIG);
             break;
         case PowerProfile::BALANCED:
                 set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_DEF_L_HISPEED_FREQ);
@@ -261,8 +261,8 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_DEF_B_TARGET_LOADS);
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_DEF_B_ABOVE_HISPEED_DELAY);
 				/* set CPU MAX FREQ back to expected freq */
-                set(cpuInteractivePaths.at(0) + "/scaling_max_freq", LITTLE);
-                set(cpuInteractivePaths.at(1) + "/scaling_max_freq", BIG);
+                set(cpuSysfsPaths.at(0) + "/cpufreq/scaling_max_freq", LITTLE);
+                set(cpuSysfsPaths.at(1) + "/cpufreq/scaling_max_freq", BIG);
             break;
         case PowerProfile::HIGH_PERFORMANCE:
                 set(cpuInteractivePaths.at(0) + "/hispeed_freq", INTERACTIVE_HIGH_L_HISPEED_FREQ);
@@ -275,8 +275,8 @@ void Power::setProfile(PowerProfile profile) {
                 set(cpuInteractivePaths.at(1) + "/target_loads", INTERACTIVE_HIGH_B_TARGET_LOADS);
                 set(cpuInteractivePaths.at(1) + "/above_hispeed_delay", INTERACTIVE_HIGH_B_ABOVE_HISPEED_DELAY);
 				/* set CPU MAX FREQ to max*/
-                set(cpuInteractivePaths.at(0) + "/scaling_max_freq", HIGH_LITTLE);
-                set(cpuInteractivePaths.at(1) + "/scaling_max_freq", HIGH_BIG);
+                set(cpuSysfsPaths.at(0) + "/cpufreq/scaling_max_freq", HIGH_LITTLE);
+                set(cpuSysfsPaths.at(1) + "/cpufreq/scaling_max_freq", HIGH_BIG);
             break;
         default:
             break;
